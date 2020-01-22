@@ -1,0 +1,42 @@
+.LoginLinkBox {
+	display: flex;
+	position: absolute;
+	top: 0.1px;
+	width: 100%;
+	background-color: #eb4d4b;
+	z-index: 1;
+	box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+}
+
+.signUp {
+	color: #000;
+	padding: 2rem;
+}
+.signUp:hover {
+	background-color: #1e90ff;
+	transition: all ease 1s;
+}
+.HomePage {
+	color: #000;
+	padding: 2rem;
+}
+.HomePage:hover {
+	background-color: #1e90ff;
+	transition: all ease 1s;
+}
+.loginheader {
+	position: relative;
+	top: 93px;
+	border-bottom: 1px solid snow;
+	box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+}
+
+.loginTemplate {
+	position: flex;
+	text-align: center;
+	margin-top: 100px;
+}
+.loginheader:hover {
+	background-color: #1e90ff;
+	transition: all ease 1s;
+}

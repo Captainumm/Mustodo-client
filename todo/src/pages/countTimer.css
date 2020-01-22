@@ -1,0 +1,40 @@
+.timerBox {
+	position: absolute;
+	margin: 0;
+	top: 100px;
+	left: 78%;
+	border: 3px solid #ff4757;
+	border-radius: 20px;
+	box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+	color: #eccc68;
+	width: 15%;
+	text-align: center;
+	padding: 1rem;
+	font-family: 'Athiti', sans-serif;
+	border-radius: 5%;
+	border-bottom: 10px solid #ffb997;
+	border-right: 10px solid #ffb997;
+}
+.timerBox:hover {
+	background-color: #ffffff;
+	transition: all ease 1s;
+}
+.TimerButton {
+	margin: 10px;
+	height: 50px;
+	width: 130px;
+	color: black;
+	background-color: #f67e7d;
+	font-weight: bold;
+	font-family: 'Athiti', sans-serif;
+	font-size: 1.1em;
+	margin-bottom: 0;
+	border: none;
+	color: #0b032d;
+	outline: none;
+}
+.TimerButton:hover {
+	background-color: #843b62;
+	cursor: pointer;
+	color: #e8e2db;
+}

@@ -1,0 +1,192 @@
+.fatherBox {
+	margin: 0 auto;
+	background: white;
+	margin-top: 200px;
+}
+
+.editInputButtonFatherBox {
+	padding: 1rem;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.userEditInput {
+	border-radius: 10px;
+	width: 700px;
+	height: 50px;
+	margin-top: -15px;
+	margin-right: -45px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.emailEditInput {
+	border-radius: 10px;
+	width: 700px;
+	height: 50px;
+	margin-top: -15px;
+	margin-right: -45px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.passwordEditInput {
+	border-radius: 10px;
+	width: 700px;
+	height: 50px;
+	margin-top: -15px;
+	margin-right: -45px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.hoverButton {
+	margin-left: -2px;
+	margin-top: -15px;
+	background: #1aab8a;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 56px;
+	font-size: 1.6em;
+	padding: 1px;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+	border-radius: 1px;
+}
+.hoverButton:hover {
+	background: #fff;
+	color: #1aab8a;
+}
+.hoverButton:before,
+.hoverButton:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #1aab8a;
+	transition: 400ms ease all;
+}
+.hoverButton:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+.hoverButton:hover:before,
+.hoverButton:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
+.userEditButton {
+	border-radius: 10px;
+}
+
+.emailEditButton {
+	border-radius: 10px;
+}
+.passwordEditButton {
+	border-radius: 10px;
+}
+
+/* Mypage */
+.myPageTitle {
+	border-radius: 5px;
+	margin: auto;
+	border-radius: 4px;
+	width: 700px;
+	height: 50px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #228dcf;
+	color: white;
+}
+
+/* User Info */
+.userInfoTitle {
+	border-radius: 5px;
+	margin: auto;
+	width: 700px;
+	height: 50px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #22b8cf;
+	color: white;
+}
+
+/* staticstic */
+.userStatisticsTitle {
+	margin: auto;
+	border-radius: 5px;
+	width: 700px;
+	height: 50px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #22b8cf;
+	color: white;
+	margin-top: -16px;
+}
+
+input:focus {
+	background-color: white;
+}
+input.visited {
+	background-color: white;
+}
+
+/* 그래프 회색 박스 및 그래프 위치 */
+.statisticsBox {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 700px;
+	margin-top: 4px;
+	background-color: #ecf0f1;
+}
+
+.donut {
+	margin: 1rem;
+	margin-top: 10px;
+}
+.myPageLinkBox {
+	display: flex;
+	position: absolute;
+	top: 0.1px;
+	width: 100%;
+	background-color: #eb4d4b;
+	z-index: 1;
+	box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+}
+.myPageHomePage {
+	color: #000;
+	padding: 2rem;
+}
+.myPageHomePage:hover {
+	background-color: #1e90ff;
+	transition: all ease 1s;
+}
+.myPageLoggedHome {
+	color: #000;
+	padding: 2rem;
+}
+.myPageLoggedHome:hover {
+	background-color: #1e90ff;
+	transition: all ease 1s;
+}
+.myPageTodoPage {
+	color: #000;
+	padding: 2rem;
+}
+.myPageTodoPage:hover {
+	background-color: #1e90ff;
+	transition: all ease 1s;
+}
