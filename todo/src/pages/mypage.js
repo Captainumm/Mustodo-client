@@ -1,11 +1,12 @@
 import React from "react";
-import { withRouter, Link, useHistory, Redirect } from "react-router-dom";
+import { withRouter, Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./mypage.css";
 import DonutChart from "react-donut-chart";
-import { MdSignalWifi1BarLock } from "react-icons/md";
-//import Calendar from "react-calendar";
+import Calendar from "react-calendar";
+
 axios.defaults.withCredentials = true;
+
 //data =
 // {
 //   userinfo:{},
@@ -19,13 +20,12 @@ class Mypage extends React.Component {
     this.state = {
       tempInput: "",
       userinfo: {},
-      todoCount: 100,
-      completeCount: 100,
-      username: "username",
-      email: "email",
-      password: "password",
-      date: new Date(),
-      isLogin: this.props.isLogin
+      todoCount: 89,
+      completeCount: 26,
+      username: "placeholder username",
+      email: "placeholder email",
+      password: "placeholder password",
+      date: new Date()
     };
     this.handleInputValue = this.handleInputValue.bind(this);
     this.setUserInfo = this.setUserInfo.bind(this);
@@ -49,12 +49,58 @@ class Mypage extends React.Component {
       });
     });
   }
-  //유저정보 수정후 엔터를 치면 자동으로 저장된다.
+  onChange = async date => {
+    this.setState({ date });
+    // const stateDate = this.state.date;
+    // const sliceDate = stateDate.slice(4, 15);
+    // console.log("Full date: ", date);
+    // console.log("getMonth: ", date.getMonth());
+    let getDate =
+      date.getDate() === 1
+        ? "01"
+        : date.getDate() < 9
+        ? "0" + date.getDate() + ""
+        : date.getDate() + "";
+    let getYear = date.getFullYear() + "";
+    let getMonth =
+      date.getMonth() === 0
+        ? "01"
+        : date.getMonth() < 10
+        ? "0" + (date.getMonth() + 1) + ""
+        : date.getMonth() + 1 + "";
+
+    let chosenDate = getYear + "-" + getMonth + "-" + getDate;
+    // console.log("chosendate: ", chosenDate);
+    let data = { createdAt: chosenDate };
+    // ("2020-01-20");
+    // console.log(data);
+    axios.post("http://localhost:4000/calendar", data).then(res => {
+      console.log("calendar res is: ", res);
+      if (res.data.length > 0) {
+        alert(
+          "first todo: " +
+            res.data[0].todoitem +
+            ". second todo: " +
+            res.data[1].todoitem +
+            "."
+        );
+      } else {
+        alert("Nothing created on this date.");
+      }
+    });
+
+    // console.log("Year: ", getYear);
+    // console.log("Date: ", getDate);
+    // console.log("Month: ", getMonth);
+    // console.log("typeof year: ", typeof getYear);
+    // console.log("typeof month: ", typeof getMonth);
+    // console.log("typeof date: ", typeof getDate);
+    // console.log("typeof chosendate: ", typeof chosenDate);
+  };
   handleInputValue = key => e => {
     // this.setState({ [key]: e.target.value });
     this.setState({ [key]: e.target.value });
   };
-  //edit 버튼을 클릭하고 유저정보를 수정한 후 save 버튼을 누르면 자동저장된다.
   handleUserEditValue = key => e => {
     e.preventDefault();
     // console.log("this.userRef is: ", this.userRef);
@@ -80,7 +126,6 @@ class Mypage extends React.Component {
         });
     }
   };
-  //email 정보 수정
   handleEmailEditValue = key => e => {
     console.log("this.emailRef is: ", this.emailRef);
     if (e.target.innerHTML === "Edit") {
@@ -94,6 +139,7 @@ class Mypage extends React.Component {
       e.target.innerHTML = "Edit";
       this.emailRef.current.disabled = true;
       this.emailRef.current.style.backgroundColor = "#ECF0F1";
+
       let data = { email: this.state.email };
       try {
         axios.put("http://localhost:4000/user/edit", data);
@@ -106,7 +152,6 @@ class Mypage extends React.Component {
       }
     }
   };
-  //비밀번호 정보 수정
   handlePasswordEditValue = key => e => {
     console.log("this.passwordRef is: ", this.passwordRef);
     if (e.target.innerHTML === "Edit") {
@@ -153,6 +198,7 @@ class Mypage extends React.Component {
       let changeData = {
         [key]: e.target.value
       };
+
       // console.log("changeData is: ", changeData);
       // console.log("e is: ", e);
       // axios
@@ -161,6 +207,7 @@ class Mypage extends React.Component {
       //     this.setState({ [key]: e.target.value });
       //   })
       //   .catch(err => console.log(err));
+
       try {
         axios.put("http://localhost:4000/user/edit", changeData);
       } catch (error) {
@@ -186,39 +233,37 @@ class Mypage extends React.Component {
     }
   };
   render() {
+    let number = (
+      (this.state.completeCount / this.state.todoCount) *
+      100
+    ).toString();
     return (
       <div className="body">
-        {/* homepage, todopage, log out 버튼 구간입니다. */}
         <div className="body">
-          <div style={{ padding: "10px", float: "right" }} className="body">
-            <Link className="loginRedirectButton" to="/loggedhome">
-              Home Page
-            </Link>
-          </div>
-          <div style={{ padding: "10px", float: "right" }} className="body">
-            <Link className="loginRedirectButton" to="/todopage">
-              Todo Page
-            </Link>
-          </div>
-          <div style={{ padding: "10px", float: "right" }} className="body">
-            <Link
-              className="loginRedirectButton"
-              onClick={this.props.logOut}
-              to="/"
-            >
-              Log Out
-            </Link>
+          <div className="body">
+            <div style={{ padding: "10px", float: "right" }} className="body">
+              <Link className="loginRedirectButton" to="/login">
+                Log Out
+              </Link>
+            </div>
+            <div style={{ padding: "10px", float: "right" }} className="body">
+              <Link className="loginRedirectButton" to="/todopage">
+                Todo Page
+              </Link>
+            </div>
           </div>
         </div>
-        {/* Mypage, User info 타이틀 구간입니다. */}
-        <div className="myPageTitle">My Page</div>
+        <div className="body">
+          <center className="myPageTitle">My Page</center>
+        </div>
         <div className="userInfoTitle">User Info</div>
-        {/* username, email, password 수정하는 칸 구간입니다. */}
-        <div className="editBoxinput">
+        <div className="userStatisticsTitle">Statistics</div>
+
+        <div className="body">
           <input
-            id="editBox"
             type="text"
             placeholder={this.state.username}
+            id="usernameBox"
             onChange={this.handleInputValue("username")}
             ref={this.userRef}
             disabled
@@ -228,19 +273,17 @@ class Mypage extends React.Component {
           ></input>
           <button
             type="button"
-            className="EditButton"
+            className="userEditButton"
             ref={this.userEditButtonRef}
             onClick={this.handleUserEditValue()}
           >
             Edit
           </button>
-        </div>
 
-        <div className="editBoxinput">
           <input
-            id="editBox"
             type="text"
             placeholder={this.state.email}
+            id="emailBox"
             onChange={this.handleInputValue("email")}
             ref={this.emailRef}
             disabled
@@ -250,19 +293,17 @@ class Mypage extends React.Component {
           ></input>
           <button
             type="button"
-            className="EditButton"
+            className="emailEditButton"
             ref={this.emailEditButtonRef}
             onClick={this.handleEmailEditValue()}
           >
             Edit
           </button>
-        </div>
 
-        <div className="editBoxinput">
           <input
-            id="editBox"
             type="text"
             placeholder={this.state.password}
+            id="passwordBox"
             onChange={this.handleInputValue("password")}
             ref={this.passwordRef}
             disabled
@@ -272,40 +313,36 @@ class Mypage extends React.Component {
           ></input>
           <button
             type="button"
-            className="EditButton"
+            className="passwordEditButton"
             ref={this.passwordEditButtonRef}
             onClick={this.handlePasswordEditValue()}
           >
             Edit
           </button>
         </div>
-
-        {/* ㅁ */}
-        <div className="userStatisticsTitle">Statistics</div>
-        {/* 아래는 그래프 부분입니다. 참고하세요 */}
-        <div align="center" className="statisticsBox">
+        <Calendar onChange={this.onChange} value={this.state.date} />
+        <div className="statisticsBox">
           <DonutChart
-            width={400}
-            height={260}
             className="donut"
             data={[
               {
-                label: "완료",
+                label: "완료한 Mustodo 수",
                 value: this.state.completeCount
               },
               {
-                label: "미완료",
+                label: "미완료 Mustodo 수",
                 value: this.state.todoCount - this.state.completeCount,
                 isEmpty: true
               }
             ]}
           />
-          <h4 align="center">작성한 Mustodo 수: {this.state.todoCount}</h4>
+
+          <h2 align="center">작성한 Mustodo 수:</h2>
+          <h2 align="center">{this.state.todoCount}</h2>
         </div>
-        {/* 그래프 끝 */}
-        {/* <Calendar onChange={this.onChange} value={this.state.date} /> */}
       </div>
     );
   }
 }
+
 export default Mypage;

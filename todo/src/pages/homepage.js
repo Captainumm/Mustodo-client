@@ -1,25 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+// import CartIcon from "./images/CartIcon.png";
+//엄준식
 class Homepage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
-        <div style={{ padding: "10px", float: "right" }} className="body">
-          <Link className="loginRedirectButton" to="/signup">
-            Sign up
-          </Link>
-          <Link
-            className="loginRedirectButton"
-            onClick={this.props.logOut}
-            to="/login"
-          >
-            Log In
-          </Link>
-        </div>
+        <ul>
+          <li>
+            <a href="/login">login</a>
+          </li>
+          <li>
+            <a href="/mypage">mypage</a>
+          </li>
+          <li>
+            <a href="/todopage">todopage</a>
+          </li>
+          <li>
+            <a href="/signup">signup</a>
+          </li>
+        </ul>
+        <center>정민님 화해 축하합니다~~~~~</center>
       </div>
     );
   }

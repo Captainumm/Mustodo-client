@@ -1,90 +1,148 @@
-body {
-  overflow-y: auto;
-}
-
 .body {
-  background: white;
+  background: linear-gradient(lightsalmon, white, rgb(6, 41, 2), blue);
 }
-
-/* Mypage */
 .myPageTitle {
-  text-decoration: none;
-  margin: auto;
-  border-radius: 4px;
-  width: 700px;
-  height: 50px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0px;
+  display: inline-block;
+  border-radius: 5px;
+  width: 400px;
+  font-size: 40px;
+  left: 37%;
+  top: 100px;
   position: relative;
-  background: #228dcf;
-  color: white;
-  text-align: center;
-}
+  border: 1px solid black;
+  background: linear-gradient(hotpink, white, green, blue, rgb(143, 125, 23));
 
-/* User Info */
-.userInfoTitle {
+  color: green;
+}
+.loginRedirectButton {
+  width: 200px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
+  font: bold 25px Arial;
   text-decoration: none;
-  margin: auto;
-  width: 700px;
-  height: 50px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0px;
-  position: relative;
-  background: #22b8cf;
-  color: white;
-  text-align: center;
+  background-color: #e74c3c;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #cccccc;
 }
-/* user name */ /* email */ /* password */
-.editBoxinput {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 25px;
-}
-#editBox {
+.userInfoTitle {
   position: relative;
   display: inline-block;
-  width: 625px;
-  height: 45px;
+  top: 200px;
+  left: 20%;
+  width: 300px;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  /* background-color: #e74c3c; */
+  background: linear-gradient(
+    hotpink,
+    rgb(243, 0, 0),
+    green,
+    blue,
+    rgb(143, 125, 23)
+  );
+  color: black;
 }
-.EditButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.userStatisticsTitle {
   position: relative;
+  display: inline-block;
+  top: 200px;
+  left: 41%;
+  width: 300px;
+  text-align: center;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: linear-gradient(hotpink, black, green, blue, rgb(143, 125, 23));
+
+  color: lightsalmon;
+}
+.statisticsBox {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+  height: 500px;
+  width: 450px;
+  position: relative;
+  top: 30px;
+  left: 53%;
+  padding: 10px;
+}
+.circleChart {
+  position: relative;
+  display: flex;
+  left: 20%;
+}
+#usernameBox {
+  position: relative;
+  display: flex;
+  top: 250px;
+  left: 17%;
+  width: 400px;
+  text-align: center;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+}
+.userEditButton {
+  position: relative;
+  top: 216px;
+  left: 40%;
   width: 70px;
-  height: 51px;
+  height: 30px;
   font-size: 20px;
   color: #ff6b6b;
 }
-
-/* staticstic */
-.userStatisticsTitle {
-  text-decoration: none;
-  margin: auto;
-  width: 700px;
-  height: 50px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0px;
+#emailBox {
   position: relative;
-  background: #22b8cf;
-  color: white;
+  display: flex;
+  top: 300px;
+  left: 17%;
+  width: 400px;
   text-align: center;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ecf0f1;
 }
-
+.emailEditButton {
+  position: relative;
+  top: 267px;
+  left: 40%;
+  width: 70px;
+  height: 30px;
+  font-size: 20px;
+  color: #ff6b6b;
+}
+#passwordBox {
+  position: relative;
+  display: flex;
+  top: 350px;
+  left: 17%;
+  width: 400px;
+  text-align: center;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+}
+.passwordEditButton {
+  position: relative;
+  top: 317px;
+  left: 40%;
+  width: 70px;
+  height: 30px;
+  font-size: 20px;
+  color: #ff6b6b;
+}
 input:focus {
   background-color: white;
 }
@@ -97,19 +155,4 @@ input.visited {
   top: 22%;
   font-size: 40px;
   font-style: italic;
-}
-
-/* 그래프 회색 박스 및 그래프 위치 */
-.statisticsBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  top: 0px;
-  background-color: #ecf0f1;
-  height: 260px;
-  width: 680px;
-  position: relative;
-  left: 25%;
-  padding: 10px;
 }

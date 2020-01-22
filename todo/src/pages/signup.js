@@ -22,9 +22,9 @@ class Signup extends React.Component {
     const { username, email, password } = this.state;
     return (
       <div>
-        <div style={{ padding: "10px", float: "right" }} className="body">
+        <div>
           <Link className="loginRedirectButton" to="/login">
-            Log In
+            Login Page
           </Link>
         </div>
         <center>
@@ -103,3 +103,4 @@ class Signup extends React.Component {
 }
 
 export default withRouter(Signup);
+z;
