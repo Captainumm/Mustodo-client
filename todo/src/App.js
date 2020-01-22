@@ -23,7 +23,7 @@ class App extends React.Component {
   };
   logOut = () => {
     axios
-      .get("http://localhost:4000/user/logout")
+      .get("http://18.191.193.104:4000/user/logout")
       .then(res => {
         this.setState({ isLogin: false });
       })
