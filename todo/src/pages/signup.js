@@ -41,7 +41,7 @@ class Signup extends React.Component {
             onSubmit={e => {
               e.preventDefault();
               axios
-                .post("http://localhost:4000/user/signup", {
+                .post("http://18.191.193.104:4000/user/signup", {
                   username: username,
                   email: email,
                   password: password

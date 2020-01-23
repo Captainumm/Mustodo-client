@@ -20,7 +20,7 @@ class Login extends React.Component {
     const { handleIsLoginChange } = this.props;
 
     return axios
-      .post("http://localhost:4000/user/login", {
+      .post("http://18.191.193.104:4000/user/login", {
         email: email,
         password: password
       })

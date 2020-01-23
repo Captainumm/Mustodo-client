@@ -31,7 +31,7 @@ class Mypage extends React.Component {
     this.passwordEditButtonRef = React.createRef();
   }
   componentDidMount() {
-    axios.get("http://localhost:4000/user/mypage").then(res => {
+    axios.get("http://18.191.193.104:4000/user/mypage").then(res => {
       console.log("res is: ", res);
       this.setState({
         // userinfo: res.userinfo,
@@ -65,7 +65,7 @@ class Mypage extends React.Component {
       let data = { username: this.state.username };
       console.log("sending axios.put request with data: ", data);
       axios
-        .put("http://localhost:4000/user/edit", data)
+        .put("http://18.191.193.104:4000/user/edit", data)
         .then(() => {
           console.log("username changed");
         })
@@ -90,7 +90,7 @@ class Mypage extends React.Component {
       this.emailRef.current.style.backgroundColor = "#ECF0F1";
       let data = { email: this.state.email };
       try {
-        axios.put("http://localhost:4000/user/edit", data);
+        axios.put("http://18.191.193.104:4000/user/edit", data);
         console.log(
           "after editing email, new this.state.email is: ",
           this.state.email
@@ -114,7 +114,7 @@ class Mypage extends React.Component {
       this.passwordRef.current.style.backgroundColor = "#ECF0F1";
       let data = { password: this.state.password };
       try {
-        axios.put("http://localhost:4000/user/edit", data);
+        axios.put("http://18.191.193.104:4000/user/edit", data);
       } catch (error) {
         console.log(error);
       }
@@ -149,7 +149,7 @@ class Mypage extends React.Component {
       };
 
       try {
-        axios.put("http://localhost:4000/user/edit", changeData);
+        axios.put("http://18.191.193.104:4000/user/edit", changeData);
       } catch (error) {
         console.log(error);
       }
